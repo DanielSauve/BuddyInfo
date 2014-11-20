@@ -10,6 +10,7 @@ public class AddressBookGUI extends JFrame
 	private JMenu menuAB;
 	private JMenu menuBud;
 	private JMenuItem save;
+	private JMenuItem load;
 	private JMenuItem add;
 	private JList<BuddyInfo> text;
 	private JMenuItem remove;
@@ -51,6 +52,9 @@ public class AddressBookGUI extends JFrame
 		save = new JMenuItem("Save");
 		save.setActionCommand("save");
 		save.addActionListener(listener);
+		load = new JMenuItem("Load");
+		load.setActionCommand("load");
+		load.addActionListener(listener);
 		add = new JMenuItem("Add");
 		add.setActionCommand("add");
 		add.addActionListener(listener);
@@ -64,6 +68,7 @@ public class AddressBookGUI extends JFrame
 		menuBar.add(menuAB);
 		menuBar.add(menuBud);
 		menuAB.add(save);
+		menuAB.add(load);
 		menuBud.add(add);
 		menuBud.add(remove);
 		menuBud.add(edit);

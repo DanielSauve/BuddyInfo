@@ -1,8 +1,9 @@
-public class BuddyInfo {
+public class BuddyInfo implements java.io.Serializable{
 	
 	private String name;
 	private String address;
 	private String number;
+	private int age;
 	
 	public BuddyInfo(String name, String address, String number)
 	{
@@ -11,6 +12,12 @@ public class BuddyInfo {
 		this.setNumber(number);
 	}
 	
+	public BuddyInfo(BuddyInfo b) {
+		this.setName(b.getName());
+		this.setAddress(b.getAddress());
+		this.setNumber(b.getNumber());
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -49,6 +56,23 @@ public class BuddyInfo {
 	
 	public String toString()
 	{
-		return this.getName() + ", " + this.getAddress() + ", " + this.getNumber();
+		return this.getName() + " \n" + this.getAddress() + " \n" + this.getNumber() + " \n" + this.getAge();
+	}
+
+	private int getAge() {
+		return this.age;
+	}
+
+	public void setAge(int i) {
+		this.age = i;
+		
+	}
+
+	public boolean isOver18() {
+		return age>=18;
+	}
+
+	public String greetBuddy() {
+		return "Hello " + this.getName();
 	}
 }

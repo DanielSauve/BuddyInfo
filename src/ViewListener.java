@@ -1,8 +1,16 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import javax.swing.JOptionPane;
 
 
@@ -24,15 +32,19 @@ public class ViewListener implements ActionListener{
 		case "save":
 			saveAB();
 			break;
+		case "load":
+			loadAB();
+			break;
 		
 		}
 	}
-	
+
 	public void addBuddy()
 	{
 		BuddyInfo b = new BuddyInfo(JOptionPane.showInputDialog("What is your friends name?"), 
 				JOptionPane.showInputDialog("What is your friends address?"), 
 				JOptionPane.showInputDialog("What is your friends phone number?"));
+		b.setAge(Integer.parseInt(JOptionPane.showInputDialog("What is your friends age?")));
 		if (!(addressBook.contains(b)||b.getName().equals(null)||b.getName().equals(null)||b.getName().equals(null)))
 		{
 			addressBook.addBuddy(b);
@@ -51,16 +63,11 @@ public class ViewListener implements ActionListener{
 	
 	public void saveAB()
 	{
-		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter("AddressBook.txt"));
-			for(int i = 0; i<addressBook.getSize();i++)
-			{
-				out.write(addressBook.get(i).toString()+"\r");
-			}
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		addressBook.saveAB();
+	}
+	
+	private void loadAB() {
+		addressBook.loadAB();
 	}
 	public AddressBook getAddressBook()
 	{
