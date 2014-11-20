@@ -1,5 +1,6 @@
 public class BuddyInfo implements java.io.Serializable{
 	
+	private static final long serialVersionUID = -7239929519316863126L;
 	private String name;
 	private String address;
 	private String number;
@@ -16,6 +17,7 @@ public class BuddyInfo implements java.io.Serializable{
 		this.setName(b.getName());
 		this.setAddress(b.getAddress());
 		this.setNumber(b.getNumber());
+		this.setAge(b.getAge());
 	}
 
 	public void setName(String name) {

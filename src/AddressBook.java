@@ -60,7 +60,6 @@ public class AddressBook extends DefaultListModel<BuddyInfo> implements java.io.
 			this.insertElementAt(b, index);
 		}	
 	}
-	
 	public void loadAB()
 	{
 		try {
